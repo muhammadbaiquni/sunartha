@@ -28,6 +28,7 @@ namespace Sunartha
                 if (i % 3 == 0 && i % 5 == 0 && i % 7 == 0) Console.WriteLine("tiktektok");
                 else if (i % 3 == 0 && i % 7 == 0) Console.WriteLine("tiktok");
                 else if (i % 5 == 0 && i % 7 == 0) Console.WriteLine("tektok");
+                else if (i % 3 == 0 && i % 5 == 0) Console.WriteLine("tiktek");
                 else if (i % 3 == 0) Console.WriteLine("tik");
                 else if (i % 5 == 0) Console.WriteLine("tek");
                 else if (i % 7 == 0) Console.WriteLine("tok");
