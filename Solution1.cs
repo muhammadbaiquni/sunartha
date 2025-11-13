@@ -6,11 +6,11 @@ public class Solution1
     {
         var listMobil = new List<ListMobil>()
         {
-            new ListMobil() { IDRegistrasi = 1, Tipe = "Sedan", Merk = "Toyota", Varian = "FT86" },
-            new ListMobil() { IDRegistrasi = 2, Tipe = "SUV", Merk = "Toyota", Varian = "RAV4" },
-            new ListMobil() { IDRegistrasi = 3, Tipe = "Sedan", Merk = "Honda", Varian = "Accord" },
-            new ListMobil() { IDRegistrasi = 4, Tipe = "SUV", Merk = "Honda", Varian = "CRV" },
-            new ListMobil() { IDRegistrasi = 5, Tipe = "Sedan", Merk = "Honda", Varian = "City" }
+            new ListMobil(1, "Sedan", "Toyota", "FT86"),
+            new ListMobil(2, "SUV", "Toyota", "RAV4"),
+            new ListMobil(3, "Sedan", "Honda", "Accord"),
+            new ListMobil(4, "SUV", "Honda", "CRV"),
+            new ListMobil(5, "Sedan", "Honda", "City")
         };
 
         void PrintList(string title, IEnumerable<ListMobil> list)
