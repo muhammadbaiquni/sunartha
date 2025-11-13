@@ -4,16 +4,16 @@ public class Solution1
 {
     public void Answer()
     {
-        var listMobil = new List<ListMobil>()
+        var listMobil = new List<Mobil>()
         {
-            new ListMobil(1, "Sedan", "Toyota", "FT86"),
-            new ListMobil(2, "SUV", "Toyota", "RAV4"),
-            new ListMobil(3, "Sedan", "Honda", "Accord"),
-            new ListMobil(4, "SUV", "Honda", "CRV"),
-            new ListMobil(5, "Sedan", "Honda", "City")
+            new Mobil(1, "Sedan", "Toyota", "FT86"),
+            new Mobil(2, "SUV", "Toyota", "RAV4"),
+            new Mobil(3, "Sedan", "Honda", "Accord"),
+            new Mobil(4, "SUV", "Honda", "CRV"),
+            new Mobil(5, "Sedan", "Honda", "City")
         };
 
-        void PrintList(string title, IEnumerable<ListMobil> list)
+        void PrintList(string title, IEnumerable<Mobil> list)
         {
             Console.WriteLine($"\n{title}");
 

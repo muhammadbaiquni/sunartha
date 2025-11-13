@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sunartha
 {
-    public class ListMobil
+    public class Mobil
     {
         public int IDRegistrasi { get; }
         public string Tipe { get; }
         public string Merk { get; }
         public string Varian { get; }
 
-        public ListMobil(int idRegistrasi, string tipe, string merk, string varian)
+        public Mobil(int idRegistrasi, string tipe, string merk, string varian)
         {
             IDRegistrasi = idRegistrasi;
             Tipe = tipe;
