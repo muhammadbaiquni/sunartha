@@ -1,9 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-
-namespace Sunartha;
+﻿namespace Sunartha;
 
 public class Program
 {
