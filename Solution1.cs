@@ -1,65 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Sunartha;
 
-namespace Sunartha
+public class Solution1
 {
-    public class Solution1
+    public void Answer()
     {
-        public void Answer()
+        var listMobil = new List<ListMobil>()
         {
-            IEnumerable<ListMobil> listMobil = new List<ListMobil>()
-            {
-                new ListMobil() { IDRegistrasi = 0001, Tipe = "Sedan", Merk = "Toyota", Varian = "FT86" },
-                new ListMobil() { IDRegistrasi = 0002, Tipe = "SUV", Merk = "Toyota", Varian = "RAV4" },
-                new ListMobil() { IDRegistrasi = 0003, Tipe = "Sedan", Merk = "Honda", Varian = "Accord" },
-                new ListMobil() { IDRegistrasi = 0004, Tipe = "SUV", Merk = "Honda", Varian = "CRV" },
-                new ListMobil() { IDRegistrasi = 0005, Tipe = "Sedan", Merk = "Honda", Varian = "City" }
-            };
+            new ListMobil() { IDRegistrasi = 1, Tipe = "Sedan", Merk = "Toyota", Varian = "FT86" },
+            new ListMobil() { IDRegistrasi = 2, Tipe = "SUV", Merk = "Toyota", Varian = "RAV4" },
+            new ListMobil() { IDRegistrasi = 3, Tipe = "Sedan", Merk = "Honda", Varian = "Accord" },
+            new ListMobil() { IDRegistrasi = 4, Tipe = "SUV", Merk = "Honda", Varian = "CRV" },
+            new ListMobil() { IDRegistrasi = 5, Tipe = "Sedan", Merk = "Honda", Varian = "City" }
+        };
 
-            // 1. Tampilkan data pertama yang memiliki merk Honda
-            Console.WriteLine("Jawaban 1.1");
-            var satu = listMobil
-                .Where(x => x.Merk.ToLower() == "honda")
-                .Select(x => new ListMobil { IDRegistrasi = x.IDRegistrasi, Merk = x.Merk, Varian = x.Varian })
-                .First();
-            Console.WriteLine(satu.ToString());
+        void PrintList(string title, IEnumerable<ListMobil> list)
+        {
+            Console.WriteLine($"\n{title}");
 
-            // 2. Tampilkan data terakhir yang memiliki merk "Honda" dan bertipe "Sedan"
-            Console.WriteLine("\nJawaban 1.2");
-            var dua = listMobil.Where(x => x.Merk.ToLower() == "honda" && x.Tipe.ToLower() == "sedan")
-                .Select(x => new ListMobil { IDRegistrasi = x.IDRegistrasi, Merk = x.Merk, Varian = x.Varian })
-                .Last();
-            Console.WriteLine(dua.ToString());
-
-            // 3. Tampilkan data pertama yang memiliki merk "Honda" dan varian "City"
-            Console.WriteLine("\nJawaban 1.3");
-            var tiga = listMobil.Where(x => x.Merk.ToLower() == "honda" && x.Varian.ToLower() == "city")
-                .Select(x => new ListMobil { IDRegistrasi = x.IDRegistrasi, Merk = x.Merk, Varian = x.Varian })
-                .First();
-            Console.WriteLine(tiga.ToString());
-
-            // 4. Tampilkan data default yang memiliki merk "Toyota"
-            Console.WriteLine("\nJawaban 1.4");
-            var empat = listMobil.Where(x => x.Merk.ToLower() == "toyota")
-                .Select(x => new ListMobil { IDRegistrasi = x.IDRegistrasi, Merk = x.Merk, Varian = x.Varian })
-                .ToList();
-            foreach (var list in empat)
-            {
-                Console.WriteLine(list.ToString());
-            }
-
-            // 5. Tampilkan 3 data apa saja
-            Console.WriteLine("\nJawaban 1.5");
-            var lima = listMobil
-                .Select(x => new ListMobil { IDRegistrasi = x.IDRegistrasi, Merk = x.Merk, Varian = x.Varian })
-                .Take(3);
-            foreach (var list in lima)
-            {
-                Console.WriteLine(list.ToString());
-            }
+            foreach (var item in list)
+                Console.WriteLine(item.ToString());
         }
+
+        // 1. Tampilkan data pertama yang memiliki merk Honda
+        PrintList("Jawaban 1.1", listMobil.Where(x => x.Merk.Equals("honda", StringComparison.OrdinalIgnoreCase)).Take(1));
+
+        // 2. Tampilkan data terakhir yang memiliki merk "Honda" dan bertipe "Sedan"
+        PrintList("Jawaban 1.2", listMobil.Where(x => x.Merk.Equals("honda", StringComparison.OrdinalIgnoreCase) && x.Tipe.Equals("sedan", StringComparison.OrdinalIgnoreCase)).TakeLast(1));
+
+        // 3. Tampilkan data pertama yang memiliki merk "Honda" dan varian "City"
+        PrintList("Jawaban 1.3", listMobil.Where(x => x.Merk.Equals("honda", StringComparison.OrdinalIgnoreCase) && x.Varian.Equals("city", StringComparison.OrdinalIgnoreCase)).Take(1));
+
+        // 4. Tampilkan data default yang memiliki merk "Toyota"
+        PrintList("Jawaban 1.4", listMobil.Where(x => x.Merk.Equals("toyota", StringComparison.OrdinalIgnoreCase)));
+
+        // 5. Tampilkan 3 data apa saja
+        PrintList("Jawaban 1.5", listMobil.Take(3));
     }
 }
